@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/newfavicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <title>Terms &amp; Conditions | CK Industries</title>
+    <meta name="description" content="Terms and Conditions for CK Industries." />
+    <style>
+      .legal-shell {
+        min-height: 100vh;
+        padding: 32px 24px 56px;
+      }
+
+      .legal-wrap {
+        width: min(960px, 100%);
+        margin: 0 auto;
+      }
+
+      .legal-top {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .legal-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--text-1);
+        text-decoration: none;
+      }
+
+      .legal-brand img {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid var(--border);
+        padding: 7px;
+        box-shadow: var(--shadow-card);
+      }
+
+      .legal-brand-title {
+        display: block;
+        font-family: Sora, sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .legal-brand-subtitle {
+        display: block;
+        margin-top: 3px;
+        color: var(--text-3);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .legal-home {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        border-radius: 9px;
+        padding: 0 18px;
+        background: var(--navy);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .legal-card {
+        border: 1px solid rgba(228, 231, 237, 0.9);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(12px) saturate(1.4);
+        overflow: hidden;
+      }
+
+      .legal-hero {
+        padding: 34px 40px;
+        background: var(--navy);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .legal-hero::after {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 260px;
+        height: 260px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(212, 168, 83, 0.18), transparent 68%);
+      }
+
+      .legal-eyebrow {
+        color: var(--gold-bright);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .legal-hero h1 {
+        margin-top: 10px;
+        font-family: Sora, sans-serif;
+        font-size: clamp(30px, 5vw, 48px);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .legal-updated {
+        margin-top: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+      }
+
+      .legal-content {
+        padding: 34px 40px 40px;
+      }
+
+      .legal-content p,
+      .legal-content li {
+        color: var(--text-2);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .legal-content p + p {
+        margin-top: 12px;
+      }
+
+      .legal-content section + section {
+        margin-top: 28px;
+      }
+
+      .legal-content h2 {
+        margin-bottom: 10px;
+        color: var(--text-1);
+        font-family: Sora, sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .legal-content ul {
+        margin-top: 10px;
+        padding-left: 20px;
+        list-style: disc;
+      }
+
+      .legal-content a {
+        color: var(--navy);
+        font-weight: 700;
+      }
+
+      .legal-footer {
+        margin-top: 18px;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .legal-footer a {
+        color: var(--text-2);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      @media (width <= 640px) {
+        .legal-shell {
+          padding: 22px 16px 40px;
+        }
+
+        .legal-hero,
+        .legal-content {
+          padding: 26px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="legal-shell">
+      <div class="legal-wrap">
+        <nav class="legal-top" aria-label="Legal page navigation">
+          <a class="legal-brand" href="/" aria-label="CK Industries home">
+            <img src="/ck-logo.jpg" alt="CK Industries" />
+            <span>
+              <span class="legal-brand-title">CK INDUSTRIES</span>
+              <span class="legal-brand-subtitle">Industrial Lubricants</span>
+            </span>
+          </a>
+          <a class="legal-home" href="/">Back to Home</a>
+        </nav>
+
+        <article class="legal-card">
+          <header class="legal-hero">
+            <div class="legal-eyebrow">Legal</div>
+            <h1>Terms &amp; Conditions</h1>
+            <p class="legal-updated">Last updated: June 11, 2026</p>
+          </header>
+
+          <div class="legal-content">
+            <section>
+              <h2>Acceptance of Terms</h2>
+              <p>
+                By accessing this website, contacting CK Industries, requesting information, or purchasing
+                products from us, you agree to these Terms &amp; Conditions. If you do not agree, please do
+                not use the website or our services.
+              </p>
+            </section>
+
+            <section>
+              <h2>Products and Information</h2>
+              <p>
+                CK Industries provides information about lubricants, greases, industrial fluids, related
+                product grades, applications, and compliance references. Product details, technical data,
+                availability, packaging, pricing, and specifications may change without prior notice.
+              </p>
+              <p>
+                Website content is provided for general information only. Final product selection should
+                be confirmed using official quotations, technical data sheets, safety data sheets, OEM
+                requirements, and written guidance from CK Industries where applicable.
+              </p>
+            </section>
+
+            <section>
+              <h2>Enquiries, Orders, and Commercial Terms</h2>
+              <p>
+                All enquiries, quotations, purchase orders, delivery timelines, payment terms, taxes,
+                freight charges, returns, and warranties are subject to written confirmation by CK
+                Industries. A website enquiry does not create a binding order until accepted by us in
+                writing or through an official invoice, quotation, or order confirmation.
+              </p>
+            </section>
+
+            <section>
+              <h2>Customer Responsibilities</h2>
+              <p>You agree to:</p>
+              <ul>
+                <li>Provide accurate business, billing, delivery, and technical requirement information.</li>
+                <li>Use products only for appropriate applications and according to applicable safety guidance.</li>
+                <li>Review product labels, data sheets, and safety information before storage or use.</li>
+                <li>Comply with all applicable laws, site policies, and industry safety standards.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Website Use</h2>
+              <p>
+                You may not misuse this website, attempt unauthorized access, interfere with normal
+                operation, copy content for misleading commercial use, or use the site for unlawful,
+                fraudulent, or harmful purposes.
+              </p>
+            </section>
+
+            <section>
+              <h2>Intellectual Property</h2>
+              <p>
+                All logos, brand names, product names, images, text, graphics, layout, and other website
+                materials are owned by or licensed to CK Industries unless otherwise stated. You may not
+                reproduce, modify, distribute, or commercially use this content without written permission.
+              </p>
+            </section>
+
+            <section>
+              <h2>Third-Party Links and Services</h2>
+              <p>
+                The website may contain links to third-party platforms such as email, phone, WhatsApp, or
+                external service providers. CK Industries is not responsible for third-party content,
+                policies, availability, or practices.
+              </p>
+            </section>
+
+            <section>
+              <h2>Limitation of Liability</h2>
+              <p>
+                To the maximum extent permitted by law, CK Industries is not liable for indirect,
+                incidental, consequential, special, or punitive damages arising from website use, reliance
+                on website information, product misuse, delayed communication, technical interruptions, or
+                third-party services.
+              </p>
+            </section>
+
+            <section>
+              <h2>Governing Law</h2>
+              <p>
+                These Terms &amp; Conditions are governed by the laws of India. Disputes will be handled
+                by the courts or authorities with appropriate jurisdiction under applicable Indian law.
+              </p>
+            </section>
+
+            <section>
+              <h2>Contact Us</h2>
+              <p>
+                For questions about these terms, contact CK Industries at
+                <a href="mailto:jsrckindustries@gmail.com">jsrckindustries@gmail.com</a>
+                or call <a href="tel:+919030219096">+91 90302 19096</a>.
+              </p>
+            </section>
+          </div>
+        </article>
+
+        <footer class="legal-footer">
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
