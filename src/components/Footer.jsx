@@ -104,6 +104,79 @@ export default function Footer() {
           © 2025 CK Industries — GST: XXAABCX1234X1Z5
         </span>
       </div>
+
+      {/* Legal page links */}
+      <div style={{
+        borderTop: '1px solid rgba(255,255,255,.07)',
+        padding: '18px 40px 24px',
+        display: 'flex', justifyContent: 'center', gap: 12,
+        flexWrap: 'wrap',
+        background: 'rgba(0,0,0,.2)',
+        borderRadius: '0 0 var(--radius) var(--radius)',
+      }}>
+        <a
+          href="/privacy-policy.html"
+          style={{
+            minHeight: 38,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(212,168,83,0.35)',
+            borderRadius: 9,
+            padding: '0 18px',
+            color: 'var(--gold-bright)',
+            background: 'rgba(212,168,83,0.1)',
+            fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+            fontSize: 13, fontWeight: 700,
+            textDecoration: 'none',
+            transition: 'all 0.18s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = 'var(--navy)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, var(--gold), var(--gold-bright))';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+            e.currentTarget.style.boxShadow = '0 4px 18px rgba(212,168,83,0.35)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = 'var(--gold-bright)';
+            e.currentTarget.style.background = 'rgba(212,168,83,0.1)';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <Shield size={14} style={{ marginRight: 6 }} />
+          Privacy Policy
+        </a>
+        <a
+          href="/terms-and-conditions.html"
+          style={{
+            minHeight: 38,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(212,168,83,0.35)',
+            borderRadius: 9,
+            padding: '0 18px',
+            color: 'var(--gold-bright)',
+            background: 'rgba(212,168,83,0.1)',
+            fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+            fontSize: 13, fontWeight: 700,
+            textDecoration: 'none',
+            transition: 'all 0.18s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = 'var(--navy)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, var(--gold), var(--gold-bright))';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+            e.currentTarget.style.boxShadow = '0 4px 18px rgba(212,168,83,0.35)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = 'var(--gold-bright)';
+            e.currentTarget.style.background = 'rgba(212,168,83,0.1)';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <FileText size={14} style={{ marginRight: 6 }} />
+          Terms & Conditions
+        </a>
+      </div>
     </footer>
   );
 }
