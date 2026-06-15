@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Zap, Truck, Award, Globe, Users, Droplets, BarChart3, Shield, Clock, TrendingUp } from 'lucide-react';
 
 const TICKERS = [
@@ -23,7 +24,9 @@ const FEATURES = [
   { icon: Zap,        title: 'Technical Support Desk',    desc: 'Dedicated lubrication engineers for on-site consultation.',         color: '#06b6d4' },
 ];
 
-export default function Dashboard({ setActive }) {
+
+export default function Dashboard() {
+  const navigate = useNavigate();
   const [tickIdx, setTickIdx] = useState(0);
   const [tickVisible, setTickVisible] = useState(true);
 
@@ -87,7 +90,7 @@ export default function Dashboard({ setActive }) {
             <button
               className="btn-gold"
               style={{ height: 42, padding: '0 22px', fontSize: 14 }}
-              onClick={() => setActive('products')}
+              onClick={() => navigate('/products')}
             >
               Explore Products <ArrowRight size={15} />
             </button>
@@ -100,7 +103,7 @@ export default function Dashboard({ setActive }) {
                 cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 7,
                 fontFamily: 'inherit', transition: 'all .18s',
               }}
-              onClick={() => setActive('contact')}
+              onClick={() => navigate('/contact')}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,.07)'; e.currentTarget.style.color = '#fff'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,.65)'; }}
             >
@@ -178,7 +181,7 @@ export default function Dashboard({ setActive }) {
         <div
           className="card card-hover"
           style={{ cursor: 'pointer', overflow: 'hidden', position: 'relative' }}
-          onClick={() => setActive('products')}
+          onClick={() => navigate('/products')}
         >
           <div style={{
             background: 'linear-gradient(135deg, var(--navy) 0%, #0d2347 100%)',
@@ -212,7 +215,7 @@ export default function Dashboard({ setActive }) {
         <div
           className="card card-hover"
           style={{ cursor: 'pointer', overflow: 'hidden', position: 'relative' }}
-          onClick={() => setActive('products')}
+          onClick={() => navigate('/products')}
         >
           <div style={{
             background: 'linear-gradient(135deg, #1a0808 0%, #3d1212 100%)',

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './index.css';
 
 import Sidebar     from './components/Sidebar.jsx';
@@ -10,39 +11,31 @@ import ProductHub  from './views/ProductHub.jsx';
 import Industries  from './views/Industries.jsx';
 import Contact     from './views/Contact.jsx';
 
-const VIEWS = {
-  dashboard:  Dashboard,
-  products:   ProductHub,
-  industries: Industries,
-  contact:    Contact,
-};
-
 export default function App() {
-  const [active,    setActive]    = useState('dashboard');
   const [collapsed, setCollapsed] = useState(false);
-  const [animKey,   setAnimKey]   = useState(0);
+  const location = useLocation();
   const mainRef = useRef(null);
 
-  const navigate = (view) => {
-    if (view === active) return;
-    setActive(view);
-    setAnimKey(k => k + 1);
+  useEffect(() => {
     if (mainRef.current) mainRef.current.scrollTop = 0;
-  };
-
-  const View = VIEWS[active] || Dashboard;
+  }, [location.pathname]);
 
   return (
     <div className="app-shell">
-      <Sidebar active={active} setActive={navigate} onCollapse={setCollapsed} />
+      <Sidebar onCollapse={setCollapsed} />
       <main
         ref={mainRef}
         className={`main-area ${collapsed ? 'sidebar-collapsed' : ''}`}
       >
-        <TopHeader active={active} setActive={navigate} collapsed={collapsed} />
+        <TopHeader collapsed={collapsed} />
         <div className="page-content">
-          <div key={animKey} className="view-animate">
-            <View setActive={navigate} />
+          <div key={location.pathname} className="view-animate">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/products" element={<ProductHub />} />
+              <Route path="/industries" element={<Industries />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
             <Footer />
           </div>
         </div>

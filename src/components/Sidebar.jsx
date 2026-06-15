@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Package, Factory, Phone,
   ChevronRight, Menu, X,
 } from 'lucide-react';
 
 const NAV = [
-  { id: 'dashboard',  label: 'Dashboard',            icon: LayoutDashboard },
-  { id: 'products',   label: 'Product Hub',           icon: Package         },
-  { id: 'industries', label: 'Industry Applications', icon: Factory         },
-  { id: 'contact',    label: 'Contact Us',            icon: Phone           },
+  { id: 'dashboard',  path: '/',           label: 'Dashboard',            icon: LayoutDashboard },
+  { id: 'products',   path: '/products',   label: 'Product Hub',           icon: Package         },
+  { id: 'industries', path: '/industries', label: 'Industry Applications', icon: Factory         },
+  { id: 'contact',    path: '/contact',    label: 'Contact Us',            icon: Phone           },
 ];
 
-export default function Sidebar({ active, setActive, onCollapse }) {
+export default function Sidebar({ onCollapse }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => { onCollapse?.(collapsed); }, [collapsed]);
 
   const toggle = () => setCollapsed(c => !c);
+
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <>
@@ -79,18 +88,23 @@ export default function Sidebar({ active, setActive, onCollapse }) {
         {/* ── Nav ── */}
         <nav style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '8px 0' }}>
           <div className="sidebar-section-label">Navigation</div>
-          {NAV.map(({ id, label, icon: Icon }) => (
-            <div
-              key={id}
-              className={`nav-item ${active === id ? 'active' : ''}`}
-              onClick={() => { setActive(id); setMobileOpen(false); }}
-            >
-              <Icon className="nav-item-icon" size={17} />
-              <span className="nav-item-label" style={{ opacity: collapsed ? 0 : 1, transition: 'opacity .2s' }}>{label}</span>
-              {active === id && !collapsed && <span className="nav-item-dot" />}
-              <div className="nav-tooltip">{label}</div>
-            </div>
-          ))}
+          {NAV.map(({ id, path, label, icon: Icon }) => {
+            const active = isActive(path);
+            return (
+              <Link
+                key={id}
+                to={path}
+                className={`nav-item ${active ? 'active' : ''}`}
+                onClick={() => setMobileOpen(false)}
+                style={{ textDecoration: 'none' }}
+              >
+                <Icon className="nav-item-icon" size={17} />
+                <span className="nav-item-label" style={{ opacity: collapsed ? 0 : 1, transition: 'opacity .2s' }}>{label}</span>
+                {active && !collapsed && <span className="nav-item-dot" />}
+                <div className="nav-tooltip">{label}</div>
+              </Link>
+            );
+          })}
         </nav>
 
         {/* ── Brand footer (no user profile) ── */}

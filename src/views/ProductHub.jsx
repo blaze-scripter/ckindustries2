@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  ArrowRight, ChevronRight, Download, ExternalLink, Star,
-  Zap, Shield, Droplets, CheckCircle,
+  ArrowRight, ChevronRight, Package, Truck, Award, ShieldCheck, Zap, ThermometerSnowflake,
+  Download, ExternalLink, Star, Shield, Droplets, CheckCircle,
 } from 'lucide-react';
 
 /* ─── Sub-brand definitions ─────────────────────────────────── */
@@ -415,8 +416,10 @@ function SubBrandStrip({ brands }) {
   );
 }
 
+
 /* ─── Main component ────────────────────────────────────────── */
-export default function ProductHub({ setActive }) {
+export default function ProductHub() {
+  const navigate = useNavigate();
   const [cat, setCat] = useState('oils');
 
   const isOils = cat === 'oils';
@@ -435,7 +438,7 @@ export default function ProductHub({ setActive }) {
             <h1 className="page-title">Product Hub</h1>
             <p className="page-subtitle">{PRODUCTS.length} grades across 4 sub-brands — Oils & Greases</p>
           </div>
-          <button className="btn-gold" onClick={() => setActive('contact')}>
+          <button className="btn-gold" onClick={() => navigate('/contact')}>
             Contact Us <ChevronRight size={15} />
           </button>
         </div>
@@ -537,7 +540,7 @@ export default function ProductHub({ setActive }) {
         <p style={{ fontSize: 13.5, color: 'var(--text-2)', marginBottom: 14 }}>
           Need a custom specification? Our technical engineers will recommend the exact lubricant for your application.
         </p>
-        <button className="btn-gold" onClick={() => setActive('contact')}>
+        <button className="btn-gold" onClick={() => navigate('/contact')}>
           Get a Technical Specification <ArrowRight size={15} />
         </button>
       </div>

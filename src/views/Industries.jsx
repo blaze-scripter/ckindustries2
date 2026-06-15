@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Truck, Factory, Zap, Cpu, Anchor, Wind, Wrench, Flame } from 'lucide-react';
 
 const INDUSTRIES = [
@@ -60,7 +61,8 @@ const INDUSTRIES = [
   },
 ];
 
-export default function Industries({ setActive }) {
+export default function Industries() {
+  const navigate = useNavigate();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
@@ -88,7 +90,7 @@ export default function Industries({ setActive }) {
         <button
           className="btn-gold"
           style={{ height: 42, padding: '0 22px', fontSize: 14, flexShrink: 0, zIndex: 1, position: 'relative' }}
-          onClick={() => setActive('contact')}
+          onClick={() => navigate('/contact')}
         >
           Contact Our Team <ArrowRight size={15} />
         </button>
@@ -100,7 +102,7 @@ export default function Industries({ setActive }) {
           <div
             key={title}
             className="card card-hover industry-card"
-            onClick={() => setActive('products')}
+            onClick={() => navigate('/products')}
           >
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, marginBottom: 12 }}>
               <div style={{ width: 44, height: 44, borderRadius: 12, background: `${color}12`, border: `1px solid ${color}20`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -136,7 +138,7 @@ export default function Industries({ setActive }) {
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-1)' }}>Don't see your industry listed?</div>
           <div style={{ fontSize: 13, color: 'var(--text-3)', marginTop: 3 }}>We serve 30+ niche industrial segments — contact our engineering team.</div>
         </div>
-        <button className="btn-primary" onClick={() => setActive('contact')} style={{ height: 40 }}>
+        <button className="btn-primary" onClick={() => navigate('/contact')} style={{ height: 40 }}>
           Contact Technical Team <ArrowRight size={14} />
         </button>
       </div>

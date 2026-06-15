@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Bell, FileText, Phone } from 'lucide-react';
 
-export default function TopHeader({ active, setActive, collapsed }) {
+export default function TopHeader({ collapsed }) {
   const [q, setQ] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const LABELS = {
-    dashboard:  'Dashboard',
-    products:   'Product Hub',
-    industries: 'Industry Applications',
-    contact:    'Contact Us',
+    '/':  'Dashboard',
+    '/products':   'Product Hub',
+    '/industries': 'Industry Applications',
+    '/contact':    'Contact Us',
+  };
+
+  const getActiveLabel = () => {
+    const path = location.pathname;
+    if (LABELS[path]) return LABELS[path];
+    if (path.startsWith('/products')) return LABELS['/products'];
+    if (path.startsWith('/industries')) return LABELS['/industries'];
+    if (path.startsWith('/contact')) return LABELS['/contact'];
+    return 'Dashboard';
   };
 
   return (
@@ -41,7 +53,7 @@ export default function TopHeader({ active, setActive, collapsed }) {
       <div className="hidden sm:flex items-center gap-1.5" style={{ flexShrink: 0, marginRight: 8 }}>
         <span style={{ fontSize: 13, color: 'var(--text-3)' }}>CK Industries</span>
         <span style={{ fontSize: 13, color: 'var(--text-3)' }}>/</span>
-        <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-1)' }}>{LABELS[active]}</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-1)' }}>{getActiveLabel()}</span>
       </div>
 
       {/* ── Search ── */}
@@ -70,7 +82,7 @@ export default function TopHeader({ active, setActive, collapsed }) {
           }} />
         </button>
 
-        <button className="btn-gold" onClick={() => setActive('contact')} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        <button className="btn-gold" onClick={() => navigate('/contact')} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <Phone size={13} /> Contact Us
         </button>
       </div>
